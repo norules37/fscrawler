@@ -125,6 +125,9 @@ public class TikaInstance {
                     logger.debug("Tesseract Output Type set to [{}].", fs.getOcr().getOutputType());
                     config.setOutputType(fs.getOcr().getOutputType());
                 }
+                // --psm 1로 설정. 한글 ocr 간격 수정
+                config.setPageSegMode("4");
+                config.setPreserveInterwordSpacing(true);
                 context.set(TesseractOCRConfig.class, config);
             }
         }
